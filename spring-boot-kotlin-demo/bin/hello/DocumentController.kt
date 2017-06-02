@@ -10,6 +10,10 @@ class DocumentController(val repository:DocumentRepository) {
 	fun findAll() = repository.findAll()
 	
 	@GetMapping("/document/{id}")
-	fun findByLastName(@PathVariable id:Long)
+	fun findById(@PathVariable id:Long)
 			= repository.findById(id)
+	
+	@GetMapping("/document/code/{code}")
+	fun findByCode(@PathVariable code:String)
+			= repository.findByCode(code)
 }

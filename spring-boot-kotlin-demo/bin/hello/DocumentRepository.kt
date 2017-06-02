@@ -8,4 +8,5 @@ import org.springframework.data.repository.CrudRepository
 interface DocumentRepository : CrudRepository<Document, Long> {
 	
 	fun findById(id: Long): Iterable<Document>
+	fun findByCode(code: String): Iterable<Document>
 }
