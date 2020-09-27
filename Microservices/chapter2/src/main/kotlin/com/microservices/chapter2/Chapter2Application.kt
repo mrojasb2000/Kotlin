@@ -12,7 +12,7 @@ class Chapter2Application
 
 @Controller
 class FirstController {
-	@RequestMapping(value = ["/user"], method = arrayOf(RequestMethod.GET))
+	@RequestMapping(value = ["/user"], method = [RequestMethod.GET])
 	@ResponseBody
 	fun hello() = "hello world"
 }
