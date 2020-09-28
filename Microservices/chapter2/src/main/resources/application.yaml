@@ -7,13 +7,13 @@ service:
     text: "hello"
 ---
 spring:
-    profile: "development"
+    profiles: "development"
 service:
   message:
     text: "hi"
 ---
 spring:
-  profile: "production"
+  profiles: "production"
 service:
   message:
     text: "welcome"
