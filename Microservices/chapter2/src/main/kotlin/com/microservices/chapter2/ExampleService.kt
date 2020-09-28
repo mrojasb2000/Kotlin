@@ -7,7 +7,7 @@ interface ServiceInterface {
     fun getHello(name: String) : String
 }
 
-@Service
+//@Service
 class ExampleService: ServiceInterface {
     @Value(value = "\${service.message.text}")
     private lateinit var text: String
