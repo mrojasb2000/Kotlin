@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody
 @SpringBootApplication
 class Chapter2Application
 
+
+
 @Controller
 class FirstController() {
 	@Autowired
-	lateinit var exampleService: ExampleService
+	lateinit var exampleService: ServiceInterface
 	@RequestMapping(value = ["/user/{name}"], method = [RequestMethod.GET])
 	@ResponseBody
 	fun hello(@PathVariable name: String) = exampleService.getHello(name)
