@@ -1,5 +1,6 @@
 package com.microservices.chapter2
 
+import com.microservices.chapter2.model.Customer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
+import java.util.concurrent.ConcurrentHashMap
 
 @SpringBootApplication
 class Chapter2Application {
@@ -20,6 +22,15 @@ class Chapter2Application {
 	@Bean
 	@ConditionalOnExpression("#{'\${service.type}'=='simple'}")
 	fun exampleService() : ServiceInterface = ExampleService()
+
+	companion object {
+		val initialCustomer = arrayOf(Customer(1, "Kotlin"),
+				Customer(2, "Spring"),
+				Customer(3, "Microservices"))
+	}
+
+	@Bean
+	fun customer() = ConcurrentHashMap<Int, Customer>(initialCustomer.associateBy(Customer::id))
 }
 
 @Controller
