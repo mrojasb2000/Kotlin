@@ -3,18 +3,21 @@ spring:
     active: "development"
 
 service:
+  type: "simple"
   message:
     text: "hello"
 ---
 spring:
     profiles: "development"
 service:
+  type: "simple"
   message:
     text: "hi"
 ---
 spring:
   profiles: "production"
 service:
+  type: "advance"
   message:
     text: "welcome"
 
