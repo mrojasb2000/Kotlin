@@ -18,4 +18,9 @@ class CustomerController {
             = customers.filter {
                 it.value.name.contains(nameFilter, true)
             }.map(Map.Entry<Int, Customer>::value).toList()
+
+    @RequestMapping(value = ["/customer/"], method = [RequestMethod.POST])
+    fun createCustomer(@RequestBody customer: Customer) {
+        customers[customer.id] = customer
+    }
 }
