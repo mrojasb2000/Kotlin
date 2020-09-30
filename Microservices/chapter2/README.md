@@ -29,10 +29,10 @@ Ej. curl -X GET localhost:8080/customers
 Ej. curl -X GET localhost:8080/customers/2
 
 ### Create new customer
-Ej. curl -X POST localhost:8080/customer/ -H 'content-type: application/json' -d '{
-                                                                                  "id": 4,
-                                                                                  "name": "New Customer"
-                                                                              }'
+Ej. curl -X POST localhost:8080/customer/ -H 'content-type: application/json' -d '{"id": 4,"name": "New Customer"}'
 
 ### Delete customer
 Ej. curl -X DELETE localhost:8080/customer/2
+
+### Update customer
+Ej. curl -X PUT http://localhost:8080/customer/2 -H 'cache-control: no-cache' -H 'content-type: application/json' -d '{ "id": 4, "name": "Update Customer"}”
