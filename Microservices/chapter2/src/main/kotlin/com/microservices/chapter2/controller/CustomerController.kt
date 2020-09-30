@@ -14,7 +14,7 @@ class CustomerController {
     @GetMapping(value = ["/customer/{id}"])
     fun getCustomer(@PathVariable id: Int) = customerService.getCustomer(id)
 
-    @RequestMapping(value = ["/customers"], method = [RequestMethod.GET])
+    @GetMapping(value = ["/customers"])
     fun getCustomers(@RequestParam(required = false, defaultValue = "") nameFilter: String)
             = customerService.searchCustomers(nameFilter)
 
