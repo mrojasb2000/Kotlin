@@ -22,9 +22,17 @@ Ej. http://localhost:8080/customers?nameFilter=in
 
 ## CRUD Customer
 
+### Get customers
+Ej. curl -X GET localhost:8080/customers
+
+### Get customer by id
+Ej. curl -X GET localhost:8080/customers/2
+
 ### Create new customer
 Ej. curl -X POST localhost:8080/customer/ -H 'content-type: application/json' -d '{
                                                                                   "id": 4,
                                                                                   "name": "New Customer"
                                                                               }'
 
+### Delete customer
+Ej. curl -X DELETE localhost:8080/customer/2
