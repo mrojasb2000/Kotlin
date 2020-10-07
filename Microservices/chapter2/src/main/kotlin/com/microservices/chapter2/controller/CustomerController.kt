@@ -1,6 +1,7 @@
 package com.microservices.chapter2.controller
 
 import com.microservices.chapter2.model.Customer
+import com.microservices.chapter2.model.ErrorResponse
 import com.microservices.chapter2.service.CustomerService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -13,10 +14,11 @@ class CustomerController {
     lateinit var customerService : CustomerService
 
     @GetMapping(value = ["/customer/{id}"])
-    fun getCustomer(@PathVariable id: Int) : ResponseEntity<Customer?> {
-        val customer = customerService.getCustomer(id)
-        val status = if (customer == null) HttpStatus.NOT_FOUND else HttpStatus.OK
-        return   ResponseEntity(customer, status)
+    fun getCustomer(@PathVariable id: Int) : ResponseEntity<Any> {
+        val customer = customerService.getCustomer(id) ?:
+            return ResponseEntity(ErrorResponse("Customer Not Found", "customer '$id' not found"),
+                    HttpStatus.NOT_FOUND)
+        return ResponseEntity(customer, HttpStatus.OK)
     }
 
     @GetMapping(value = ["/customers"])
