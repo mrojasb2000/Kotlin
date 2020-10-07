@@ -9,7 +9,7 @@ class CustomerServiceImpl : CustomerService {
 
     companion object {
         val initialCustomer = arrayOf(Customer(1, "Kotlin", Customer.Telephone("+44", "7123456789")),
-                Customer(2, "Spring", Customer.Telephone("+56", "12345678")),
+                Customer(2, "Spring"),
                 Customer(3, "Microservices", Customer.Telephone("+52", "0987654321")))
     }
 
